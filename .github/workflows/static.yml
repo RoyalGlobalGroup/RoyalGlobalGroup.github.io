@@ -32,6 +32,10 @@ jobs:
       - name: Install Dependencies
         run: npm install # o 'npm install' si prefieres
 
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+
+
       - name: Build Angular Project
         run: ng build
         env:
