@@ -27,18 +27,24 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # o la versión que tu proyecto requiera
+          node-version: '18.13' # Actualizado a la versión requerida por Angular CLI
 
       - name: Install Dependencies
-        run: npm ci # o 'npm install' si prefieres
+        run: npm install
+
+
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli 
+
 
       - name: Build Angular Project
-        run: ng build --prod --base-href "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+        run: ng build
         env:
           CI: true
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          branch: gh-pages # El nombre de la rama en la que desplegar (por defecto es gh-pages)
+          branch: RoyalGlobalGroup.github.io # El nombre de la rama en la que desplegar (por defecto es gh-pages)
           folder: dist/app-neo # reemplaza 'your-angular-project-name' con el nombre de tu proyecto de Angular dentro de la carpeta 'dist'
+          token: ${{ secrets.GITHUB_TOKEN }} 
