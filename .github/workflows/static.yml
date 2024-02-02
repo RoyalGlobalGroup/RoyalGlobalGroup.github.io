@@ -30,7 +30,7 @@ jobs:
           node-version: '16' # o la versión que tu proyecto requiera
 
       - name: Install Dependencies
-        run: npm ci # o 'npm install' si prefieres
+        run: npm install # o 'npm install' si prefieres
 
       - name: Build Angular Project
         run: ng build --prod
