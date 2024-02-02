@@ -27,10 +27,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # o la versión que tu proyecto requiera
+          node-version: '18.13' # Actualizado a la versión requerida por Angular CLI
 
       - name: Install Dependencies
-        run: npm install # o 'npm install' si prefieres
+        run: npm install
+
 
       - name: Install Angular CLI
         run: npm install -g @angular/cli
