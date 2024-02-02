@@ -47,4 +47,4 @@ jobs:
         with:
           branch: RoyalGlobalGroup.github.io # El nombre de la rama en la que desplegar (por defecto es gh-pages)
           folder: dist/app-neo # reemplaza 'your-angular-project-name' con el nombre de tu proyecto de Angular dentro de la carpeta 'dist'
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }} 
