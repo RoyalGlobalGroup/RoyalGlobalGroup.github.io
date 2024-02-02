@@ -1,0 +1,112 @@
+@import "variables";
+
+.header-container {
+  background-color: lightblue;
+  height: 100px;
+  width: 100;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .languages-container {
+    height: 36px;
+    margin-right: 0.5em;
+    max-width: 65px;
+    ::ng-deep .p-dropdown {
+      width: 100%;
+      background-color: #3e3f50;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      &:focus {
+        border: 2px solid $accentD;
+        border: none;
+        outline: none;
+        box-shadow: none;
+      }
+
+      .p-inputtext {
+        color: $white;
+      }
+
+      .p-dropdown-label.p-placeholder {
+        color: #6c757d !important;
+      }
+
+      .p-dropdown-panel {
+        background-color: #3e3f50;
+      }
+
+      .p-dropdown .p-dropdown-label.p-placeholder {
+        color: $white;
+      }
+
+      .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+        color: $white;
+      }
+
+      .p-dropdown-panel .p-dropdown-items .p-dropdown-item:hover {
+        background-color: #3e3f50;
+      }
+
+      .p-dropdown.p-dropdown-clearable .p-dropdown-label {
+        color: $white;
+      }
+
+      .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+        background: #565870;
+      }
+
+      .country-item {
+        display: flex;
+        align-items: center;
+        width: 36px;
+        .country-item-image {
+          max-width: 20px;
+        }
+        .languageSelector {
+          width: 16px;
+          margin-right: 0.5rem;
+          background-size: 10px;
+          vertical-align: middle;
+        }
+
+        .selected-language-name {
+          font-size: 10px;
+        }
+      }
+    }
+
+    ::ng-deep .p-focus {
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+  }
+}
+
+// Styles Desktop
+@media only screen and (min-width: $desktop) {
+  .header-container {
+    .languages-container {
+      padding-left: 20px;
+      margin-right: 1em;
+      max-width: none;
+      .country-item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        .languageSelector {
+          width: 20px;
+          margin-right: 0.5rem;
+          background-size: 10px;
+          vertical-align: middle;
+        }
+
+        .selected-language-name {
+          font-size: 100%;
+        }
+      }
+    }
+  }
+}

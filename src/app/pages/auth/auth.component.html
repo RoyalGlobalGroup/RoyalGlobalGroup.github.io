@@ -1,0 +1,204 @@
+<section class="auth-container">
+  <section class="form-section">
+    <form class="form-container" [formGroup]="authForm">
+      <!-- Name Field -->
+      <div class="input-container" *ngIf="!hasAnAccount">
+        <span class="p-float-label">
+          <input
+            type="text"
+            pInputText
+            #firstName
+            id="nameInput"
+            formControlName="name"
+            class="input-element"
+            [ngClass]="{ 'invalid-input': invalidInputs.nameInput }"
+            (blur)="
+              this.authForm.get('name')?.invalid
+                ? (invalidInputs.nameInput = true)
+                : (invalidInputs.nameInput = false)
+            "
+            (focus)="labelName.classList.add('label-focus')"
+            (focusout)="labelName.classList.remove('label-focus')"
+          />
+          <label
+            #labelName
+            for="nameInput"
+            class="label-text"
+            [ngClass]="{ 'label-error': invalidInputs.nameInput }"
+          >
+            {{ "AUTH.FORM.NAME" | translate }}
+          </label>
+          <span
+            [ngStyle]="{
+              visibility: invalidInputs.nameInput ? 'visible' : 'hidden'
+            }"
+            class="label-error label-message"
+            >{{ "AUTH.FORM.EMPTY_INPUT.EMPTY" | translate }}
+            {{ invalidInputs.nameInput }}
+          </span>
+        </span>
+      </div>
+
+      <!-- Email Field -->
+      <div class="input-container">
+        <span class="p-float-label">
+          <input
+            type="text"
+            pInputText
+            id="emailInput"
+            formControlName="email"
+            class="input-element"
+            [ngClass]="{ 'invalid-input': invalidInputs.emailInput }"
+            (keydown)="removeSpaces($event)"
+            (keyup)="removeSpaces($event)"
+            (keydown.space)="$event.preventDefault()"
+            (blur)="
+              this.authForm.get('email')?.invalid
+                ? (invalidInputs.emailInput = true)
+                : (invalidInputs.emailInput = false)
+            "
+            (focus)="labelEmail.classList.add('label-focus')"
+            (focusout)="labelEmail.classList.remove('label-focus')"
+            (input)="onChangeInput()"
+          />
+          <label
+            #labelEmail
+            class="label-text"
+            for="emailInput"
+            [ngClass]="{ 'label-error': invalidInputs.emailInput }"
+            >{{ "AUTH.FORM.EMAIL" | translate }}*</label
+          >
+          <span
+            [ngStyle]="{
+              visibility: invalidInputs.emailInput ? 'visible' : 'hidden'
+            }"
+            class="label-error label-message"
+            >{{ "AUTH.FORM.EMPTY_INPUT.EMAIL" | translate }}</span
+          >
+        </span>
+      </div>
+
+      <!-- Phone Field -->
+      <div class="input-container" *ngIf="!hasAnAccount">
+        <span class="p-float-label">
+          <input
+            type="number"
+            pInputText
+            #phone
+            id="phoneInput"
+            formControlName="phone"
+            class="input-element"
+            [ngClass]="{ 'invalid-input': invalidInputs.phoneInput }"
+            (blur)="
+              this.authForm.get('phone')?.invalid
+                ? (invalidInputs.phoneInput = true)
+                : (invalidInputs.phoneInput = false)
+            "
+            (focus)="labelName.classList.add('label-focus')"
+            (focusout)="labelName.classList.remove('label-focus')"
+          />
+          <label
+            #labelName
+            for="phoneInput"
+            class="label-text"
+            [ngClass]="{ 'label-error': invalidInputs.phoneInput }"
+          >
+            {{ "AUTH.FORM.PHONE" | translate }}
+          </label>
+          <span
+            [ngStyle]="{
+              visibility: invalidInputs.phoneInput ? 'visible' : 'hidden'
+            }"
+            class="label-error label-message"
+            >{{ "AUTH.FORM.EMPTY_INPUT.PHONE" | translate }}
+          </span>
+        </span>
+      </div>
+
+      <!-- Password Field -->
+      <div class="input-container">
+        <span class="p-float-label">
+          <input
+            type="password"
+            pInputText
+            #password
+            id="passwordInput"
+            formControlName="password"
+            class="input-element"
+            [ngClass]="{ 'invalid-input': invalidInputs.passwordInput }"
+            (blur)="
+              this.authForm.get('password')?.invalid
+                ? (invalidInputs.passwordInput = true)
+                : (invalidInputs.passwordInput = false)
+            "
+            (focus)="labelName.classList.add('label-focus')"
+            (focusout)="labelName.classList.remove('label-focus')"
+          />
+          <label
+            #labelName
+            for="passwordInput"
+            class="label-text"
+            [ngClass]="{ 'label-error': invalidInputs.passwordInput }"
+          >
+            {{ "AUTH.FORM.PASSWORD" | translate }}
+          </label>
+          <span
+            [ngStyle]="{
+              visibility: invalidInputs.passwordInput ? 'visible' : 'hidden'
+            }"
+            class="label-error label-message"
+            >{{ "AUTH.FORM.EMPTY_INPUT.EMPTY" | translate }}
+          </span>
+        </span>
+      </div>
+
+      <!-- Section Buttons actios -->
+      <section class="buttons-actions-container">
+        <!-- Register -->
+        <ng-container *ngIf="!hasAnAccount">
+          <button
+            type="button"
+            class="p-button-rounded btn-app_neo btn-green-primary"
+            [disabled]="authForm.invalid"
+            (click)="signUp()"
+          >
+            {{ "AUTH.FORM.BUTTONS.REGISTER_BUTTON" | translate }}
+            <div class="btn-overlay"></div>
+          </button>
+          <button
+            type="button"
+            class="p-button-rounded btn-app_neo btn-green-secondary"
+            (click)="hasAnAccount = true"
+          >
+            {{ "AUTH.FORM.BUTTONS.HAVE_ACCOUNT_BUTTON" | translate }}
+            <div class="btn-overlay"></div>
+          </button>
+        </ng-container>
+
+        <!-- Button Login when has an Account -->
+        <ng-container *ngIf="hasAnAccount">
+          <button
+            type="button"
+            class="p-button-rounded btn-app_neo btn-green-primary"
+            [disabled]="
+              authForm.get('email')?.invalid ||
+              authForm.get('password')?.invalid
+            "
+            (click)="signIn()"
+          >
+            {{ "AUTH.FORM.BUTTONS.LOGIN_BUTTON" | translate }}
+            <div class="btn-overlay"></div>
+          </button>
+          <button
+            type="button"
+            class="p-button-rounded btn-app_neo btn-green-secondary"
+            (click)="hasAnAccount = false"
+          >
+            {{ "AUTH.FORM.BUTTONS.REGISTER_BUTTON" | translate }}
+            <div class="btn-overlay"></div>
+          </button>
+        </ng-container>
+      </section>
+    </form>
+  </section>
+</section>

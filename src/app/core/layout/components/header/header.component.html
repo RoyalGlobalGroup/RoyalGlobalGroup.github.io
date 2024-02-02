@@ -1,0 +1,35 @@
+<header class="header-container">
+  <p>{{ "HOME.HEADER" | translate }}</p>
+
+  <section class="languages-container">
+    <p-dropdown
+      *ngIf="selectedLanguage"
+      [options]="languages"
+      optionLabel="name"
+      [(ngModel)]="selectedLanguage"
+      (onChange)="onChangeLanguage()"
+    >
+      <ng-template pTemplate="selectedItem">
+        <div class="country-item country-item-value" *ngIf="selectedLanguage">
+          <img
+            [src]="selectedLanguage.image_src"
+            [class]="'languageSelector'"
+          />
+          <div class="selected-language-name">{{ selectedLanguage.name }}</div>
+        </div>
+      </ng-template>
+
+      <ng-template let-country pTemplate="item">
+        <div class="country-item">
+          <img
+            [src]="country.image_src"
+            priority
+            [class]="'languageSelector'"
+            class="country-image"
+          />
+          <div class="selected-language-name">{{ country.name }}</div>
+        </div>
+      </ng-template>
+    </p-dropdown>
+  </section>
+</header>

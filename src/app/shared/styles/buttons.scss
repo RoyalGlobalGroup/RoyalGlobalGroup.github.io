@@ -1,0 +1,75 @@
+@import "./colors.scss";
+
+button {
+  cursor: pointer !important;
+  position: relative !important;
+  letter-spacing: 0.8px !important;
+}
+
+button:disabled {
+  background-color: $contentC !important;
+  color: $white !important;
+  border: none;
+  cursor: not-allowed !important;
+}
+
+button:hover:not([disabled]) .btn-overlay {
+  display: block !important;
+}
+
+button:hover:not([disabled]) .btn-overlay-default {
+  display: block !important;
+}
+
+.btn-app_neo {
+  border: none;
+  padding: 10px 0px;
+  line-height: 20px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 100px;
+}
+
+.btn-overlay {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 100px;
+  z-index: 2;
+}
+
+.btn-overlay-default {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  z-index: 2;
+}
+
+.btn-green-primary {
+  background-color: $accentD;
+  color: $white;
+}
+
+.btn-green-secondary {
+  background-color: $lightblue1;
+  color: $accentD;
+}
+
+.btn-gray-primary {
+  background-color: $darkGray3;
+  color: $white;
+}

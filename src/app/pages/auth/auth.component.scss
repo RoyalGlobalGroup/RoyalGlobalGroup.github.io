@@ -1,0 +1,83 @@
+@import "variables";
+
+.auth-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(77, 153, 184);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .form-section {
+    background-color: rgb(185, 177, 177);
+    padding: 1em;
+    padding-top: 2em;
+    width: 350px;
+    // height: 500px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+
+    .form-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      row-gap: 17px;
+
+      .input-container {
+        height: 88px;
+        display: flex;
+        align-items: flex-end;
+        .p-float-label {
+          width: 100%;
+          .input-element {
+            height: 64px;
+            width: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 10px;
+
+            &:focus {
+              border: 2px solid $accentD;
+              outline: none;
+              box-shadow: none;
+            }
+          }
+          .invalid-input {
+            border: 2px solid $error;
+          }
+          .label-text {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            color: $contentB;
+          }
+          .label-focus {
+            font-size: 14px;
+            line-height: 16px;
+          }
+          .label-error {
+            color: $error;
+          }
+          .label-message {
+            margin-top: 4px;
+            margin-left: 16px;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 14px;
+          }
+        }
+      }
+    }
+    .buttons-actions-container {
+      display: flex;
+      flex-direction: column;
+      row-gap: 16px;
+    }
+  }
+}
+
+// Styles Desktop
+@media only screen and (min-width: $desktop) {
+}
