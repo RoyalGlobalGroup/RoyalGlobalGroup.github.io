@@ -33,7 +33,7 @@ jobs:
         run: npm ci # o 'npm install' si prefieres
 
       - name: Build Angular Project
-        run: ng build --prod --base-href "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+        run: ng build --prod
         env:
           CI: true
 
