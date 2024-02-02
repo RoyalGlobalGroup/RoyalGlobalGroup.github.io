@@ -1,0 +1,44 @@
+name: Deploy Angular Project to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # o la versión que tu proyecto requiera
+
+      - name: Install Dependencies
+        run: npm ci # o 'npm install' si prefieres
+
+      - name: Build Angular Project
+        run: ng build --prod --base-href "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+        env:
+          CI: true
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages # El nombre de la rama en la que desplegar (por defecto es gh-pages)
+          folder: dist/app-neo # reemplaza 'your-angular-project-name' con el nombre de tu proyecto de Angular dentro de la carpeta 'dist'
