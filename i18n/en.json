@@ -1,0 +1,28 @@
+{
+  "LAYOUT": {
+    "LOGOUT": "Logout"
+  },
+  "AUTH": {
+    "FORM": {
+      "NAME": "Name",
+      "EMAIL": "Email",
+      "PHONE": "Phone",
+      "PASSWORD": "Password",
+      "EMPTY_INPUT": {
+        "EMPTY": "Must not be empty",
+        "EMAIL": "Must be a valid email",
+        "PHONE": "Invalid phone number format"
+      },
+      "BUTTONS": {
+        "REGISTER_BUTTON": "Register",
+        "HAVE_ACCOUNT_BUTTON": "I have an account",
+        "LOGIN_BUTTON": "Login"
+      }
+    }
+  },
+  "HOME": {
+    "TITLE": "Welcome to the home page",
+    "HEADER": "Header",
+    "MENU": "Menu works!"
+  }
+}
