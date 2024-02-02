@@ -34,7 +34,7 @@ jobs:
 
 
       - name: Install Angular CLI
-        run: npm install -g @angular/cli
+        run: npm install -g @angular/cli 
 
 
       - name: Build Angular Project
