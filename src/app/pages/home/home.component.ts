@@ -9,6 +9,7 @@ import { LayoutManager } from "../../core/layout/layout.manager";
 export class HomeComponent implements OnDestroy {
   constructor(private layoutManager: LayoutManager) {
     this.layoutManager.enableAllComponents();
+    this.layoutManager.toggleMenuComponent(false);
   }
   ngOnDestroy(): void {
     this.layoutManager.disableAllComponents();
