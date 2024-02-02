@@ -1,6 +1,6 @@
 # Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.4.
 
 Use a [Node js](https://nodejs.org/es/) version: >= 18.10
 
