@@ -7,7 +7,6 @@ import { CoreModule } from "./core/core.module";
 import { SharedModule } from "./shared/shared.module";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { LoaderInterceptor } from "./core/interceptors/loader.interceptor";
-import { TokenInterceptor } from "./core/interceptors/token.interceptor";
 import { ErrorsManager } from "./core/errors/errors.manager";
 import { MessageService } from "primeng/api";
 import {provideClientHydration} from '@angular/platform-browser';
@@ -25,11 +24,6 @@ import {provideClientHydration} from '@angular/platform-browser';
     ErrorsManager,
     MessageService,
     [provideClientHydration()],
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true,
-    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptor,

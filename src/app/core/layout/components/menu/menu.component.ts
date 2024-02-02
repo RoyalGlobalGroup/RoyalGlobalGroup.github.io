@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-import { AuthFunctions } from "../../../../pages/auth/auth.functions";
 
 @Component({
   selector: "appNeo-menu",
@@ -7,9 +6,8 @@ import { AuthFunctions } from "../../../../pages/auth/auth.functions";
   styleUrls: ["./menu.component.scss"],
 })
 export class MenuComponent {
-  constructor(private authFunctions: AuthFunctions) {}
+  constructor() {}
 
   logout(): void {
-    this.authFunctions.logout();
   }
 }
