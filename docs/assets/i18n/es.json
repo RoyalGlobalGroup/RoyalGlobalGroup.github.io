@@ -24,5 +24,10 @@
     "TITLE": "Bienvenido a la pagina HOME",
     "HEADER": "Encabezado",
     "MENU": "Menu funcionando"
+  },
+  "HEADER": {
+    "HOME": "Principal",
+    "SERVICES": "Servicios",
+    "PRODUCTS": "Productos"
   }
 }

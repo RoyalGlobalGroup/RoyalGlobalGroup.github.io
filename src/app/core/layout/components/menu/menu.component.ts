@@ -7,7 +7,9 @@ import { Component } from "@angular/core";
 })
 export class MenuComponent {
   constructor() {}
-
+  requestQuote(): void {
+    // Implementar lógica para solicitar cotización aquí
+  }
   logout(): void {
   }
 }

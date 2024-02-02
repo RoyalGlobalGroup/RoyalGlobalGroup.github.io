@@ -24,5 +24,10 @@
     "TITLE": "Welcome to the home page",
     "HEADER": "Header",
     "MENU": "Menu works!"
+  },
+  "HEADER": {
+    "HOME": "Home",
+    "SERVICES": "Services",
+    "PRODUCTS": "Products"
   }
 }

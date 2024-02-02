@@ -1,101 +1,17 @@
 @import "variables";
 
-.header-container {
-  background-color: lightblue;
-  height: 100px;
-  width: 100;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-
-  .languages-container {
-    height: 36px;
-    margin-right: 0.5em;
-    max-width: 65px;
-    ::ng-deep .p-dropdown {
-      width: 100%;
-      background-color: #3e3f50;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-
-      &:focus {
-        border: 2px solid $accentD;
-        border: none;
-        outline: none;
-        box-shadow: none;
-      }
-
-      .p-inputtext {
-        color: $white;
-      }
-
-      .p-dropdown-label.p-placeholder {
-        color: #6c757d !important;
-      }
-
-      .p-dropdown-panel {
-        background-color: #3e3f50;
-      }
-
-      .p-dropdown .p-dropdown-label.p-placeholder {
-        color: $white;
-      }
-
-      .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
-        color: $white;
-      }
-
-      .p-dropdown-panel .p-dropdown-items .p-dropdown-item:hover {
-        background-color: #3e3f50;
-      }
-
-      .p-dropdown.p-dropdown-clearable .p-dropdown-label {
-        color: $white;
-      }
-
-      .p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
-        background: #565870;
-      }
-
-      .country-item {
-        display: flex;
-        align-items: center;
-        width: 36px;
-        .country-item-image {
-          max-width: 20px;
-        }
-        .languageSelector {
-          width: 16px;
-          margin-right: 0.5rem;
-          background-size: 10px;
-          vertical-align: middle;
-        }
-
-        .selected-language-name {
-          font-size: 10px;
-        }
-      }
-    }
-
-    ::ng-deep .p-focus {
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
-      box-shadow: none !important;
-      outline: none !important;
-    }
-  }
-}
-
-// Styles Desktop
 @media only screen and (min-width: $desktop) {
   .header-container {
     .languages-container {
       padding-left: 20px;
       margin-right: 1em;
       max-width: none;
+
       .country-item {
         display: flex;
         align-items: center;
         width: 100%;
+
         .languageSelector {
           width: 20px;
           margin-right: 0.5rem;
@@ -107,6 +23,92 @@
           font-size: 100%;
         }
       }
+    }
+  }
+
+  .logo__img {
+    width: 130px;
+    position: absolute;
+    top: 50px;
+    left: 61px;
+  }
+
+}
+
+
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  width: 100;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .header-logo {
+    // Añade estilos para el logo aquí
+  }
+
+  .header-navigation {
+    .nav-list {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+
+      .nav-item {
+        color: #333;
+        cursor: pointer;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #0056b3; // o cualquier color corporativo
+        }
+      }
+    }
+  }
+
+  .languages-container {
+    // Añade estilos para el selector de idiomas aquí
+  }
+
+  .header-actions {
+    display: flex;
+    gap: 10px;
+
+    .login-button,
+    .quote-button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        // Sombra o cambio de color al pasar el mouse
+      }
+    }
+
+    .quote-button {
+      background-color: #d9534f; // color rojo del botón de la imagen
+      color: white;
+
+      &:hover {
+        background-color: darken(#d9534f, 10%);
+      }
+    }
+  }
+}
+
+// Responde a los cambios de tamaño para dispositivos móviles
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+
+    .header-actions {
+      order: 3;
+      margin-top: 10px;
     }
   }
 }
