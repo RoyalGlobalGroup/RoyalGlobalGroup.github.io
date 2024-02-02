@@ -45,5 +45,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          branch: gh-pages # El nombre de la rama en la que desplegar (por defecto es gh-pages)
+          branch: main # El nombre de la rama en la que desplegar (por defecto es gh-pages)
           folder: dist/app-neo # reemplaza 'your-angular-project-name' con el nombre de tu proyecto de Angular dentro de la carpeta 'dist'
