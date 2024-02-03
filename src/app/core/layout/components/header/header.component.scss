@@ -1,6 +1,165 @@
 @import "variables";
 
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  width: 100;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative; // Asegúrate de que el logo se posiciona relativo al contenedor
+
+
+
+  .header-logo {
+    .logo__img {
+      width: 130px;
+      position: absolute;
+      top: 50px;
+      left: 61px;
+    }
+  }
+
+  .header-navigation {
+    .nav-list {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+
+      .nav-item {
+        color: #333;
+        cursor: pointer;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #0056b3; // o cualquier color corporativo
+        }
+      }
+    }
+  }
+
+  .languages-container {
+    padding-left: 20px;
+    margin-right: 1em;
+    max-width: none;
+
+    .country-item {
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      .languageSelector {
+        width: 20px;
+        margin-right: 0.5rem;
+        background-size: 10px;
+        vertical-align: middle;
+      }
+
+      .selected-language-name {
+        font-size: 100%;
+      }
+    }
+  }
+
+
+  .nav-toggle {
+    display: none;
+  }
+
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+
+    .header-logo {
+      .logo__img {
+        width: auto; // Ajusta el tamaño automáticamente basado en el alto
+        max-height: 80%; // Asegúrate de que el logo no excede el alto del contenedor
+        max-width: 130px; // Máximo ancho para el logo
+        position: relative; // No absoluto, para que se ajuste con flexbox
+        top: auto; // Restablece los valores para móviles
+        left: auto; // Restablece los valores para móviles
+        /*    */
+      }
+    }
+
+    .nav-toggle {
+      display: block; // Mostrar el botón
+      position: absolute !important;
+      right: 20px;
+      top: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      color: #333;
+      z-index: 100; // Asegurarse de que esté sobre otros elementos
+    }
+
+    .header-navigation {
+      width: 100%; // Toma el ancho completo
+
+      .nav-list {
+        display: none; // Ocultar por defecto
+        flex-direction: column;
+        align-items: center;
+        width: 100%; // Toma el ancho completo
+        padding-left: 0; // Eliminar el padding izquierdo si existe
+
+        .nav-item {
+          width: 100%; // Toma el ancho completo
+          text-align: center;
+        }
+      }
+
+      // Muestra el menú cuando se activa
+      .nav-list.show {
+        display: flex;
+      }
+
+
+
+      // Muestra el botón de menú hamburguesa
+      /*  .nav-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        cursor: pointer;
+
+        // Añade un ícono de menú hamburguesa o usa texto como "Menu"
+        &:before {
+          content: '☰'; // Añade tu ícono de menú aquí
+          font-size: 24px;
+          color: #333;
+        }
+      } */
+    }
+
+    .header-actions {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+
+      .login-button,
+      .quote-button {
+        width: 100%; // Botones de ancho completo
+        margin: 5px 0; // Añade un poco de margen entre los botones
+      }
+    }
+  }
+}
+
+// Responde a los cambios de tamaño para dispositivos móviles
+/* 
 @media only screen and (min-width: $desktop) {
+
+
+
   .header-container {
     .languages-container {
       padding-left: 20px;
@@ -32,83 +191,4 @@
     top: 50px;
     left: 61px;
   }
-
-}
-
-
-
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  height: 100px;
-  width: 100;
-  align-items: center;
-  padding: 0 20px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-  .header-logo {
-    // Añade estilos para el logo aquí
-  }
-
-  .header-navigation {
-    .nav-list {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-
-      .nav-item {
-        color: #333;
-        cursor: pointer;
-        transition: color 0.3s;
-
-        &:hover {
-          color: #0056b3; // o cualquier color corporativo
-        }
-      }
-    }
-  }
-
-  .languages-container {
-    // Añade estilos para el selector de idiomas aquí
-  }
-
-  .header-actions {
-    display: flex;
-    gap: 10px;
-
-    .login-button,
-    .quote-button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-
-      &:hover {
-        // Sombra o cambio de color al pasar el mouse
-      }
-    }
-
-    .quote-button {
-      background-color: #d9534f; // color rojo del botón de la imagen
-      color: white;
-
-      &:hover {
-        background-color: darken(#d9534f, 10%);
-      }
-    }
-  }
-}
-
-// Responde a los cambios de tamaño para dispositivos móviles
-@media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-
-    .header-actions {
-      order: 3;
-      margin-top: 10px;
-    }
-  }
-}
+} */

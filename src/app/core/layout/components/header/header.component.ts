@@ -24,14 +24,19 @@ export class HeaderComponent implements OnInit {
   // Language
   selectedLanguage!: ILanguage | undefined;
   languages!: ILanguage[];
+  isNavOpen = false;
 
   constructor(
     private translate: TranslateService,
     private store: Store<GlobalState>
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loadTranslates();
+  }
+
+  toggleNav() {
+    this.isNavOpen = !this.isNavOpen;
   }
 
   async loadTranslates(): Promise<void> {
